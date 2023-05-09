@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>moreDetails</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">moreDetails</h1>
+
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(StockDistFit)</span></code></pre></div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The <strong>StockDistFit</strong> package provides a set of functions
+for fitting and comparing probability distributions to stock return
+data. The package can be used to perform statistical analyses on stock
+market data, and comparing different distributions and estimating the
+parameters of the chosen distribution.</p>
+<p>The package contains functions for loading stock data, fitting
+distributions, comparing distributions, and generating summary
+statistics. The main function, <code>fit_multiple_dist</code>, takes as
+input a vector or a data frame of stock return data and one or a vector
+of distribution names, and returns the best fitting distribution based
+on the Akaike Information Criterion (AIC).</p>
+<p>This vignette provides an overview of the package and demonstrates
+how to use its main functions. We will use publicly available stock
+data, AMZN, GOOG, TSLA and AAPL from Yahoo finance to illustrate how to
+load stock data, fit distributions, and visualize the results.</p>
+<div id="assest_loader-function" class="section level2">
+<h2>1. assest_loader() Function</h2>
+<p>The <code>asset_loader()</code> function loads asset data stored in
+CSV format and returns a time-series object of the asset data. This
+function takes in three arguments; data_path, assets, and price_col.</p>
+<p>data_path is the path to the directory containing the CSV files.
+assets is a vector of asset names to be loaded. price_col is the name of
+the price column to be selected (e.g., Open, Close, Low, High). The
+function reads in the CSV files, selects the specified price column, and
+merges the data frames for all the assets. The resulting data frame is
+then converted to an xts object with the dates as row names.</p>
+<div id="usage" class="section level3">
+<h3>Usage</h3>
+<p>The asset_loader function can be called as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>asset_data <span class="ot">&lt;-</span> <span class="fu">asset_loader</span>(data_path, assets, price_col)</span></code></pre></div>
+</div>
+<div id="details" class="section level3">
+<h3>Details</h3>
+<p>The data to be loaded must be in CSV format and must contain the
+Date, Open, Low, High, and Close prices of the assets to be loaded. The
+<code>Date</code> column in the files should be of the format
+“%m/%d/%y”, that is 01/14/13 with 01 implying the month, 14 the date and
+13 the year</p>
+<p>The function makes use of the following packages: dplyr, xts, utils,
+magrittr, zoo, and stats.</p>
+</div>
+<div id="example" class="section level3">
+<h3>Example</h3>
+<p>Assume we have CSV files for the Apple (AAPL), Microsoft (MSFT), and
+Amazon (AMZN) stock prices saved in the directory “path/to/data/folder”.
+To load the Close prices of these assets, we can use the asset_loader
+function as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>asset_data <span class="ot">&lt;-</span> <span class="fu">asset_loader</span>(<span class="st">&quot;path/to/data/folder&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="st">&quot;MSFT&quot;</span>, <span class="st">&quot;AMZN&quot;</span>), <span class="st">&quot;Close&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="weekly_return-function" class="section level2">
+<h2>weekly_return() Function</h2>
+<p>This function takes a numeric vector of asset returns and computes
+weekly returns. The input data must be an xts object with dates as
+rownames. The function returns a numeric vector of weekly returns.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute weekly returns of an asset vector</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>asset_returns_xts <span class="ot">&lt;-</span> <span class="fu">xts</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="sc">-</span><span class="fl">0.03</span>, <span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.01</span>, <span class="fl">0.04</span>, <span class="sc">-</span><span class="fl">0.02</span>, <span class="fl">0.01</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">order.by =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2023-05-01&quot;</span>, <span class="st">&quot;2023-05-02&quot;</span>, <span class="st">&quot;2023-05-03&quot;</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;2023-05-04&quot;</span>, <span class="st">&quot;2023-05-05&quot;</span>, <span class="st">&quot;2023-05-06&quot;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;2023-05-07&quot;</span>)))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">weekly_return</span>(asset_returns_xts)</span></code></pre></div>
+</div>
+<div id="monthly_return-function" class="section level2">
+<h2>monthly_return() Function</h2>
+<p>This function takes a numeric vector of asset returns and computes
+monthly returns. The input data must be an xts object with dates as
+rownames. The function returns a numeric vector of monthly returns.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute monthly returns of an asset vector</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>asset_returns_xts <span class="ot">&lt;-</span> <span class="fu">xts</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="sc">-</span><span class="fl">0.03</span>, <span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.01</span>, <span class="fl">0.04</span>, <span class="sc">-</span><span class="fl">0.02</span>, <span class="fl">0.01</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">order.by =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2023-05-01&quot;</span>, <span class="st">&quot;2023-05-02&quot;</span>, <span class="st">&quot;2023-05-03&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;2023-05-04&quot;</span>, <span class="st">&quot;2023-05-05&quot;</span>, <span class="st">&quot;2023-05-06&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;2023-05-07&quot;</span>)))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">monthly_return</span>(asset_returns_xts)</span></code></pre></div>
+</div>
+<div id="annual_return-function" class="section level2">
+<h2>annual_return() Function</h2>
+<p>This function takes a numeric vector of asset returns and computes
+annual returns. The input data must be an xts object with dates as
+rownames. The function returns a numeric vector of annual returns.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute annual returns of an asset vector</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>asset_returns_xts <span class="ot">&lt;-</span> <span class="fu">xts</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="sc">-</span><span class="fl">0.03</span>, <span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.01</span>, <span class="fl">0.04</span>, <span class="sc">-</span><span class="fl">0.02</span>, <span class="fl">0.01</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">order.by =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2023-05-01&quot;</span>, <span class="st">&quot;2023-05-02&quot;</span>, <span class="st">&quot;2023-05-03&quot;</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;2023-05-04&quot;</span>, <span class="st">&quot;2023-05-05&quot;</span>, <span class="st">&quot;2023-05-06&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;2023-05-07&quot;</span>)))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">annual_return</span>(asset_returns_xts)</span></code></pre></div>
+</div>
+<div id="cumulative_return-function" class="section level2">
+<h2>cumulative_return() Function</h2>
+<p><strong>Compute Cumulative Returns of a Vector</strong>. This
+function takes a vector of asset returns and computes the cumulative
+wealth generated over time, assuming that the initial wealth was
+initial_eq.</p>
+<div id="usage-1" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.cumret</span>(df_ret, initial_eq)</span></code></pre></div>
+</div>
+<div id="arguments" class="section level3">
+<h3>Arguments</h3>
+<p>df_ret: an xts object of asset returns, with dates as rownames.
+initial_eq: a numeric value representing the initial wealth. Value An
+xts object of wealth generated over time.</p>
+</div>
+<div id="examples" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute cumulative returns of an asset vector</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>asset_returns_xts <span class="ot">&lt;-</span> <span class="fu">xts</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="sc">-</span><span class="fl">0.03</span>, <span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.01</span>, <span class="fl">0.04</span>, <span class="sc">-</span><span class="fl">0.02</span>, <span class="fl">0.01</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">order.by =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2023-05-01&quot;</span>, <span class="st">&quot;2023-05-02&quot;</span>, <span class="st">&quot;2023-05-03&quot;</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">&quot;2023-05-04&quot;</span>, <span class="st">&quot;2023-05-05&quot;</span>, <span class="st">&quot;2023-05-06&quot;</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                                               <span class="st">&quot;2023-05-07&quot;</span>)))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data.cumret</span>(asset_returns_xts, <span class="at">initial_eq =</span> <span class="dv">100</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="norm_fit-function" class="section level2">
+<h2>norm_fit() Function</h2>
+<div id="description" class="section level3">
+<h3>Description</h3>
+<p>norm_fit is a function that fits a normal distribution to a given
+numeric vector of stock returns or stock prices using the fitdist
+function from the fitdistrplus package. The function returns a list with
+the estimated mean and standard deviation parameters of the fitted
+normal distribution, as well as the AIC and BIC values of the fitted
+distribution.</p>
+</div>
+<div id="usage-2" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">norm_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-1" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector to be fitted with a normal distribution.</p>
+</div>
+<div id="value" class="section level3">
+<h3>Value</h3>
+<p>A list with the following components:</p>
+<p>par: A numeric vector with the estimated mean and standard deviation
+parameters of the fitted normal distribution.</p>
+<p>aic: A numeric value representing the Akaike information criterion
+(AIC) of the fitted distribution.</p>
+<p>bic: A numeric value representing the Bayesian information criterion
+(BIC) of the fitted distribution.</p>
+</div>
+<div id="examples-1" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a normal distribution to a vector of returns</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">asset_loader</span>(<span class="st">&quot;path/to/data/folder&quot;</span>,  (<span class="st">&quot;AAPL&quot;</span>), <span class="st">&quot;Close&quot;</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">weekly_return</span>(df<span class="sc">$</span>AAPL)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">norm_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="t_fit-function" class="section level2">
+<h2>t_fit() Function</h2>
+<div id="description-1" class="section level3">
+<h3>Description</h3>
+<p>t_fit is a function that fits the Student’s t distribution to a given
+data vector of stock returns or stock prices using the fit.tuv function
+from the ghyp package. The function returns the estimated parameters
+along with the AIC and BIC values for the fitted distribution.</p>
+</div>
+<div id="usage-3" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-2" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector containing the data to be fitted.</p>
+</div>
+<div id="return-value" class="section level3">
+<h3>Return Value</h3>
+<p>A list containing the following elements:</p>
+<p>par: A numeric vector of length 5 containing the estimated values for
+the parameters of the fitted distribution: lambda (location), alpha
+(scale), mu (degrees of freedom), sigma (standard deviation), and gamma
+(skewness).</p>
+<p>aic: The Akaike information criterion (AIC) value for the fitted
+distribution.</p>
+<p>bic: The Bayesian information criterion (BIC) value for the fitted
+distribution.</p>
+</div>
+<div id="examples-2" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a Student&#39;s t distribution to a vector of returns</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">asset_loader</span>(<span class="st">&quot;path/to/data/folder&quot;</span>,  (<span class="st">&quot;AAPL&quot;</span>), <span class="st">&quot;Close&quot;</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">weekly_return</span>(df<span class="sc">$</span>AAPL)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="cauchy_fit-function" class="section level2">
+<h2>cauchy_fit() Function</h2>
+<div id="description-2" class="section level3">
+<h3>Description</h3>
+<p>cauchy_fit is a function that fits the Cauchy distribution to a given
+data vector of stock returns or stock prices using the fitdist function
+from the fitdistrplus package. The function returns the estimated
+parameters along with the AIC and BIC values for the fitted
+distribution.</p>
+</div>
+<div id="usage-4" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cauchy_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-3" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector containing the data to be fitted.</p>
+</div>
+<div id="return-value-1" class="section level3">
+<h3>Return Value</h3>
+<p>A list containing the following elements:</p>
+<p>par: A numeric vector of length 2 containing the estimated values for
+the parameters of the fitted distribution: lambda (location) and alpha
+(scale).</p>
+<p>aic: The Akaike information criterion (AIC) value for the fitted
+distribution.</p>
+<p>bic: The Bayesian information criterion (BIC) value for the fitted
+distribution.</p>
+</div>
+<div id="examples-3" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a  Cauchy distribution to a vector of returns</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">asset_loader</span>(<span class="st">&quot;path/to/data/folder&quot;</span>,  (<span class="st">&quot;AAPL&quot;</span>), <span class="st">&quot;Close&quot;</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">weekly_return</span>(df<span class="sc">$</span>AAPL)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cauchy_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="ghd_fit-function" class="section level2">
+<h2>ghd_fit() Function</h2>
+<div id="description-3" class="section level3">
+<h3>Description</h3>
+<p>The ghd_fit function fits the Generalized Hyperbolic (GH)
+distribution to a given data vector using the fit.ghypuv function from
+the ghyp package. This function returns the estimated parameters along
+with the Akaike information criterion (AIC) and Bayesian information
+criterion (BIC) values for the fitted distribution.</p>
+</div>
+<div id="usage-5" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ghd_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-4" class="section level3">
+<h3>Arguments</h3>
+<p>vec: a numeric vector containing the data to be fitted.</p>
+</div>
+<div id="details-1" class="section level3">
+<h3>Details</h3>
+<p>To use the ghd_fit function, simply pass a numeric vector containing
+the data to be fitted to the function as an argument. For example, if
+you have a vector of stock prices, you can use the diff function to
+compute the vector of returns and then pass it to the ghd_fit
+function.</p>
+</div>
+<div id="return-value-2" class="section level3">
+<h3>Return Value</h3>
+<p>The output of the function is a list containing three elements:</p>
+<p>par: a numeric vector of length 5 containing the estimated values for
+the parameters of the fitted distribution: lambda (location), alpha
+(scale), mu (degrees of freedom), sigma (standard deviation), and gamma
+(skewness).</p>
+<p>aic: the AIC value for the fitted distribution.</p>
+<p>bic: the BIC value for the fitted distribution.</p>
+<p>You can also use the help function or the ? operator to get more
+information about the function, including its arguments and
+examples.</p>
+</div>
+<div id="example-1" class="section level3">
+<h3>Example</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ghd_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="hd_fit-function" class="section level2">
+<h2>hd_fit() Function</h2>
+<div id="description-4" class="section level3">
+<h3>Description</h3>
+<p>The hd_fit function fits the Hyperbolic distribution to a given data
+vector using the fit.hypuv function from the ghyp package. This function
+returns the estimated parameters along with the AIC and BIC values for
+the fitted distribution.</p>
+</div>
+<div id="usage-6" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hd_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="details-2" class="section level3">
+<h3>Details</h3>
+<p>To use the hd_fit function, simply pass a numeric vector containing
+the data to be fitted to the function as an argument. For example, if
+you have a vector of stock prices, you can use the diff function to
+compute the vector of returns and then pass it to the hd_fit
+function:</p>
+</div>
+<div id="return-value-3" class="section level3">
+<h3>Return Value</h3>
+<p>The output of the function is a list containing three elements:</p>
+<p>par: a numeric vector of length 4 containing the estimated values for
+the parameters of the fitted distribution: alpha (scale), mu (location),
+sigma (standard deviation), and gamma (skewness).</p>
+<p>aic: the AIC value for the fitted distribution.</p>
+<p>bic: the BIC value for the fitted distribution.</p>
+<p>You can also use the help function or the ? operator to get more
+information about the function, including its arguments and
+examples.</p>
+</div>
+<div id="examples-4" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hd_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="sym.ghd_fit-function" class="section level2">
+<h2>sym.ghd_fit() Function</h2>
+<div id="description-5" class="section level3">
+<h3>Description</h3>
+<p>This function fits the Symmetric Generalized Hyperbolic (sGH)
+distribution to a given data vector using the fit.ghypuv function from
+the ghyp package. It returns the estimated parameters along with the AIC
+and BIC values for the fitted distribution.</p>
+</div>
+<div id="usage-7" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sym.ghd_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-5" class="section level3">
+<h3>Arguments</h3>
+<p>vec: a numeric vector containing the data to be fitted.</p>
+</div>
+<div id="details-3" class="section level3">
+<h3>Details</h3>
+<p>The function fits the sGH distribution to the input data using the
+maximum likelihood method, with the fit.ghypuv function from the ghyp
+package. The resulting estimated parameters include lambda (location),
+alpha (scale), mu (degrees of freedom), sigma (standard deviation), and
+gamma (skewness). The function also returns the Akaike information
+criterion (AIC) and Bayesian information criterion (BIC) values for the
+fitted distribution.</p>
+</div>
+<div id="return-value-4" class="section level3">
+<h3>Return Value</h3>
+<p>A list containing the following elements:</p>
+<p>par: a numeric vector of length 5 containing the estimated values for
+the parameters of the fitted distribution.</p>
+<p>aic: the Akaike information criterion (AIC) value for the fitted
+distribution.</p>
+<p>bic: the Bayesian information criterion (BIC) value for the fitted
+distribution.</p>
+</div>
+<div id="examples-5" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sym.ghd_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="sym.hd_fit" class="section level2">
+<h2>sym.hd_fit()</h2>
+<div id="description-6" class="section level3">
+<h3>Description</h3>
+<p>This function fits a Symmetric Hyperbolic distribution to a data
+vector using the fit.hypuv function from the ghyp package. It returns
+the estimated parameters along with the AIC and BIC values for the
+fitted distribution.</p>
+</div>
+<div id="usage-8" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sym.hd_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-6" class="section level3">
+<h3>Arguments</h3>
+<p>vec: a numeric vector containing the symmetric data to be fitted.</p>
+</div>
+<div id="details-4" class="section level3">
+<h3>Details</h3>
+<p>The function fits the Symmetric Hyperbolic distribution to the input
+data using the maximum likelihood method, with the fit.hypuv function
+from the ghyp package. The resulting estimated parameters include alpha
+(scale), mu (degrees of freedom), sigma (standard deviation), and gamma
+(skewness). The function also returns the Akaike information criterion
+(AIC) and Bayesian information criterion (BIC) values for the fitted
+distribution.</p>
+</div>
+<div id="return-value-5" class="section level3">
+<h3>Return Value</h3>
+<p>A list containing the following elements:</p>
+<p>par: a numeric vector of length 4 containing the estimated values for
+the parameters of the fitted distribution.</p>
+<p>aic: the Akaike information criterion (AIC) value for the fitted
+distribution.</p>
+<p>bic: the Bayesian information criterion (BIC) value for the fitted
+distribution.</p>
+</div>
+<div id="examples-6" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sym.hd_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="vg_fit-function" class="section level2">
+<h2>vg_fit() Function</h2>
+<div id="description-7" class="section level3">
+<h3>Description</h3>
+<p>The vg_fit() function is designed to fit the Variance Gamma (VG)
+distribution to a given data vector using the fit.VGuv function from the
+ghyp package. It returns the estimated parameters along with the AIC and
+BIC values for the fitted distribution.</p>
+</div>
+<div id="usage-9" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vg_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-7" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector containing the data to be fitted.</p>
+</div>
+<div id="details-5" class="section level3">
+<h3>Details</h3>
+<p>The vg_fit() function estimates the four parameters of the VG
+distribution using the maximum likelihood method implemented in the
+fit.VGuv function from the ghyp package. The AIC and BIC values are also
+calculated and returned.</p>
+</div>
+<div id="return-value-6" class="section level3">
+<h3>Return Value</h3>
+<p>The vg_fit() function returns a list containing the following
+elements:</p>
+<p>par: A numeric vector of length 4 containing the estimated values for
+the parameters of the fitted distribution: lambda (location), mu
+(scale), sigma (shape), and gamma (skewness).</p>
+<p>aic: The Akaike information criterion (AIC) value for the fitted
+distribution.</p>
+<p>bic: The Bayesian information criterion (BIC) value for the fitted
+distribution.</p>
+</div>
+<div id="examples-7" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">vg_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="sym.vg_fit-function" class="section level2">
+<h2>sym.vg_fit() Function</h2>
+<div id="description-8" class="section level3">
+<h3>Description</h3>
+<p>The sym.vg_fit() function is designed to fit the Symmetric Variance
+Gamma (sVG) distribution to a given data vector using the fit.VGuv
+function from the ghyp package. It returns the estimated parameters
+along with the AIC and BIC values for the fitted distribution.</p>
+</div>
+<div id="usage-10" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sym.vg_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-8" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector containing the data to be fitted.</p>
+</div>
+<div id="details-6" class="section level3">
+<h3>Details</h3>
+<p>The sym.vg_fit() function estimates the four parameters of the sVG
+distribution using the maximum likelihood method implemented in the
+fit.VGuv function from the ghyp package. The AIC and BIC values are also
+calculated and returned.</p>
+</div>
+<div id="return-value-7" class="section level3">
+<h3>Return Value</h3>
+<p>The sym.vg_fit() function returns a list containing the following
+elements:</p>
+<p>par: A numeric vector of length 4 containing the estimated values for
+the parameters of the fitted distribution: lambda (scale), mu
+(location), sigma (volatility), and gamma (skewness).</p>
+<p>aic: The Akaike information criterion (AIC) value for the fitted
+distribution.</p>
+<p>bic: The Bayesian information criterion (BIC) value for the fitted
+distribution.</p>
+</div>
+<div id="examples-8" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sym.vg_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="nig_fit-function" class="section level2">
+<h2>nig_fit() Function</h2>
+<div id="description-9" class="section level3">
+<h3>Description</h3>
+<p>This function fits the Normal Inverse Gaussian (NIG) Distribution to
+a given data vector using the nig_fit function from the fBasics package.
+It returns the estimated parameters along with the AIC and BIC values
+for the fitted distribution.</p>
+</div>
+<div id="usage-11" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nig_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-9" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector of data.</p>
+</div>
+<div id="details-7" class="section level3">
+<h3>Details</h3>
+<p>The nig_fit function uses the nigFit function from the fBasics
+package to fit the NIG distribution to the input data. The function
+suppresses warnings and sets trace and doplot to FALSE. It calculates
+the AIC and BIC values using the deviance, number of parameters, and
+sample size.</p>
+</div>
+<div id="return-value-8" class="section level3">
+<h3>Return Value</h3>
+<p>A list with the following elements:</p>
+<p>params: The estimated parameters of the NIG distribution: location,
+scale, skewness, and shape.</p>
+<p>aic: The Akaike Information Criterion (AIC) for the NIG distribution
+fit.</p>
+<p>bic: The Bayesian Information Criterion (BIC) for the NIG
+distribution fit.</p>
+</div>
+<div id="example-2" class="section level3">
+<h3>Example</h3>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some sample data</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the NIG distribution to the data</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">nig_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="ged_fit-function" class="section level2">
+<h2>ged_fit() Function</h2>
+<div id="description-10" class="section level3">
+<h3>Description</h3>
+<p>This function fits the Generalized Error Distribution (GED) to a
+given data vector using the ged_fit function from the fGarch package. It
+returns the estimated parameters along with the AIC and BIC values for
+the fitted distribution.</p>
+</div>
+<div id="usage-12" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ged_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-10" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector of data.</p>
+</div>
+<div id="details-8" class="section level3">
+<h3>Details</h3>
+<p>The ged_fit function uses the gedFit function from the fGarch package
+to fit the GED distribution to the input data. The function suppresses
+warnings and calculates the AIC and BIC values using the deviance,
+number of parameters, and sample size.</p>
+</div>
+<div id="return-value-9" class="section level3">
+<h3>Return Value</h3>
+<p>A list with the following elements:</p>
+<p>params: A numeric vector of length 3 containing the fitted GED
+parameters: shape, scale, and location.</p>
+<p>aic: The Akaike Information Criterion (AIC) for the fitted model.</p>
+<p>bic: The Bayesian Information Criterion (BIC) for the fitted mod</p>
+</div>
+<div id="examples-9" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create some sample data</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the GED distribution to the data</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ged_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="skew.t_fit-function" class="section level2">
+<h2>skew.t_fit() Function</h2>
+<div id="description-11" class="section level3">
+<h3>Description</h3>
+<p>This function skew.t_fit fits the Skewed Student-t Distribution to a
+given data vector using the sstdFit function from the fGarch package. It
+returns the estimated parameters along with the Akaike Information
+Criterion (AIC) and Bayesian Information Criterion (BIC) values for the
+fitted distribution.</p>
+</div>
+<div id="usage-13" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skew.t_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-11" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector of data.</p>
+</div>
+<div id="details-9" class="section level3">
+<h3>Details</h3>
+<p>The Skewed Student-t Distribution is a probability distribution used
+in finance and statistics to model stock returns or other financial
+data. It is similar to the Student-t Distribution but has an additional
+parameter that introduces skewness into the distribution.</p>
+</div>
+<div id="return-value-10" class="section level3">
+<h3>Return Value</h3>
+<p>A list with the following elements:</p>
+<p>params: A numeric vector of length 4 containing the fitted Skewed
+Student-t parameters: degrees of freedom, skewness, scale, and
+location.</p>
+<p>aic: The Akaike Information Criterion (AIC) for the fitted model.</p>
+<p>bic: The Bayesian Information Criterion (BIC) for the fitted
+model.</p>
+</div>
+<div id="example-3" class="section level3">
+<h3>Example</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">skew.t_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="skew.normal_fit-function" class="section level2">
+<h2>skew.normal_fit() Function</h2>
+<div id="description-12" class="section level3">
+<h3>Description</h3>
+<p>This function skew.normal_fit fits the Skew Normal distribution to a
+given data vector using the snormFit function from the fGarch package.
+It returns the estimated parameters along with the AIC and BIC values
+for the fitted distribution.</p>
+</div>
+<div id="usage-14" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skew.normal_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-12" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector containing the data to be fitted.</p>
+</div>
+<div id="details-10" class="section level3">
+<h3>Details</h3>
+<p>The Skew Normal distribution is a probability distribution used in
+finance and statistics to model stock returns or other financial data.
+It is similar to the Normal Distribution but has an additional parameter
+that introduces skewness into the distribution</p>
+</div>
+<div id="return-value-11" class="section level3">
+<h3>Return Value</h3>
+<p>A list containing the following elements:</p>
+<p>params: A numeric vector of length 3 containing the estimated values
+for the parameters of the fitted distribution: location (mu), scale
+(sigma), and skewness (alpha).</p>
+<p>aic: The Akaike Information Criterion (AIC) value for the fitted
+distribution.</p>
+<p>bic: The Bayesian Information Criterion (BIC) value for the fitted
+distribution.</p>
+</div>
+<div id="example-4" class="section level3">
+<h3>Example</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(stock_prices))</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">skew.normal_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="skew.ged_fit-funtion" class="section level2">
+<h2>skew.ged_fit() Funtion</h2>
+<div id="description-13" class="section level3">
+<h3>Description</h3>
+<p>The Skewed Generalized Error Distribution (SGED) is a probability
+distribution that can be used to model financial returns or stock
+prices. The SGED is a flexible distribution that can capture a wide
+range of skewness and kurtosis in the data.</p>
+<p>The skew.ged_fit function in R fits the SGED to a given vector of
+data using the sgedFit function from the fGarch package. It returns the
+estimated parameters of the distribution along with the Akaike
+Information Criterion (AIC) and the Bayesian Information Criterion
+(BIC).</p>
+</div>
+<div id="usage-15" class="section level3">
+<h3>Usage</h3>
+<p>The skew.ged_fit function takes a numeric vector vec as input and
+returns a list containing the estimated parameters of the SGED
+distribution, the AIC, and the BIC.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skew.ged_fit</span>(vec)</span></code></pre></div>
+</div>
+<div id="arguments-13" class="section level3">
+<h3>Arguments</h3>
+<p>vec: A numeric vector of data to fit the SGED distribution.</p>
+</div>
+<div id="details-11" class="section level3">
+<h3>Details</h3>
+<p>The skew.ged_fit function fits the SGED to the input data using the
+sgedFit function from the fGarch package. The sgedFit function estimates
+the parameters of the SGED distribution using maximum likelihood
+estimation.</p>
+<p>The AIC and BIC are criteria used to compare different statistical
+models. They are measures of the goodness of fit of the model that take
+into account the number of parameters in the model. The lower the AIC
+and BIC values, the better the fit of the model.</p>
+</div>
+<div id="return-value-12" class="section level3">
+<h3>Return Value</h3>
+<p>The skew.ged_fit function returns a list with the following
+elements:</p>
+<p>params: A numeric vector of length 4 containing the estimated
+parameters of the SGED distribution. The first element is the shape
+parameter, the second is the scale parameter, the third is the location
+parameter, and the fourth is the skewness parameter. aic: The Akaike
+Information Criterion (AIC) for the fitted SGED model. bic: The Bayesian
+Information Criterion (BIC) for the fitted SGED model.</p>
+</div>
+<div id="examples-10" class="section level3">
+<h3>Examples</h3>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the SGED to the returns</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">skew.ged_fit</span>(returns)</span></code></pre></div>
+</div>
+</div>
+<div id="fit_multiple_dist-function" class="section level2">
+<h2>fit_multiple_dist() Function</h2>
+<div id="description-14" class="section level3">
+<h3>Description</h3>
+<p>This function, named fit_multiple_dist, fits multiple probability
+distributions to a dataframe containing financial data and calculates
+the Akaike Information Criterion (AIC) and Bayesian Information
+Criterion (BIC) for each distribution. The function returns a data frame
+of the AIC values for each asset where the column names are the names of
+the fitted distributions.</p>
+<p>The available distributions include the Normal, Student’s
+t-distribution, Cauchy distribution, Generalized hyperbolic
+distribution, Hyperbolic distribution, Symmetric generalized hyperbolic
+distribution, Symmetric hyperbolic distribution, Variance-gamma
+distribution, Symmetric variance-gamma distribution, Normal-inverse
+Gaussian distribution, Generalized error distribution, Skew Student’s
+t-distribution, Skew normal distribution, and Skew generalized error
+distribution.</p>
+<p>Note that the distribution to be fitted from the list of available
+distributions must include the _fit suffix, as follow</p>
+<ul>
+<li><p>norm_fit - Normal distribution</p></li>
+<li><p>t_fit - Student’s t-distribution</p></li>
+<li><p>cauchy_fit - Cauchy distribution</p></li>
+<li><p>ghd_fit - Generalized hyperbolic distribution</p></li>
+<li><p>hd_fit - Hyperbolic distribution</p></li>
+<li><p>sym.ghd_fit - Symmetric generalized hyperbolic
+distribution</p></li>
+<li><p>sym.hd_fit - Symmetric hyperbolic distribution</p></li>
+<li><p>vg_fit - Variance-gamma distribution</p></li>
+<li><p>sym.vg_fit - Symmetric variance-gamma distribution</p></li>
+<li><p>nig_fit - Normal-inverse Gaussian distribution</p></li>
+<li><p>ged_fit - Generalized error distribution</p></li>
+<li><p>skew.t_fit - Skew Student’s t-distribution</p></li>
+<li><p>skew.normal_fit - Skew normal distribution</p></li>
+<li><p>skew.ged_fit - Skew generalized error distribution</p></li>
+</ul>
+<p>Additionally, the function can also fit one distribution to one
+asset.</p>
+</div>
+<div id="usage-16" class="section level3">
+<h3>Usage</h3>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fit_multiple_dist</span>(dist_names, dataframe)</span></code></pre></div>
+<p><em>It is recommended that the dataframe to be passed as an argument
+should be from the asset_loader() Function</em></p>
+</div>
+<div id="arguments-14" class="section level3">
+<h3>Arguments</h3>
+<p>dist_names: a character vector of distribution names to be
+fitted.</p>
+<p>dataframe: a dataframe containing the data to be fitted.</p>
+</div>
+<div id="details-12" class="section level3">
+<h3>Details</h3>
+<p>The function loops over the distribution names provided and fits the
+corresponding distribution to each column of the input dataframe using
+the fitdistrplus and ghyp packages. The AIC and BIC values are then
+calculated for each distribution using the fitted distribution
+parameters. Finally, the function returns a data frame of the AIC values
+for each asset where the column names are the names of the fitted
+distributions.</p>
+</div>
+<div id="return-value-13" class="section level3">
+<h3>Return Value</h3>
+<p>The function returns a dataframe of distributions and their
+corresponding AIC and BIC values and row names as the asset(s)</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">asset_loader</span>(<span class="st">&quot;path/to/data/folder&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;asset1&quot;</span>, <span class="st">&quot;asset2&quot;</span>), <span class="st">&quot;Close&quot;</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">fit_multiple_dist</span>(<span class="fu">c</span>(<span class="st">&quot;norm_fit&quot;</span>, <span class="st">&quot;cauchy_fit&quot;</span>), data)</span></code></pre></div>
+</div>
+</div>
+<div id="best_dist-function" class="section level2">
+<h2>best_dist() Function</h2>
+<div id="description-15" class="section level3">
+<h3>Description</h3>
+<p>The best_dist function is designed to find the best distribution for
+each row of AIC (Akaike Information Criterion) values in a data frame of
+fitted distribution models. It takes as input a data frame containing
+the AIC values for different distributions and a vector of distribution
+names corresponding to the AIC values. The function returns a data frame
+with the best distribution for each row based on the minimum AIC
+value.</p>
+<p>The AIC is a measure of the goodness-of-fit of a model that takes
+into account the number of parameters in the model. The lower the AIC
+value, the better the fit of the model to the data.</p>
+</div>
+<div id="usage-17" class="section level3">
+<h3>Usage</h3>
+<p>The best_dist function takes two arguments:</p>
+<p>aic_df: A data frame containing AIC values for different
+distributions. dist_names: A vector of distribution names corresponding
+to the AIC values. The aic_df argument should be a data frame with the
+AIC values for each distribution model, where each row represents a
+single observation and each column represents a different distribution.
+The dist_names argument should be a character vector with the names of
+the distributions in the same order as the columns of aic_df.</p>
+<p>The function returns a data frame with the same number of rows as
+aic_df and an additional column called best_aic, which contains the name
+of the distribution with the minimum AIC value for each row.</p>
+<p><em>Note, the aic_df dataframe preferably should be obtained from the
+fit_multiple_dist() function. This function assumes that the input data
+frame aic_df is obtained from the fit_multiple_dist function. Therefore,
+the column names of the aic_df argument should match the distribution
+names passed to fit_multiple_dist.</em></p>
+</div>
+<div id="example-5" class="section level3">
+<h3>Example</h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">asset_loader</span>(<span class="st">&quot;path/to/data/folder&quot;</span>, (<span class="st">&quot;asset1, asset2&quot;</span>), <span class="st">&quot;Close&quot;</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">weekly_return</span>(df) <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>aic_df <span class="ot">&lt;-</span> <span class="fu">fit_multiple_dist</span>(df, <span class="fu">c</span>(<span class="st">&quot;norm_fit&quot;</span>, <span class="st">&quot;cauchy_fit&quot;</span>))</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">best_dist</span>(aic_df, <span class="fu">c</span>(<span class="st">&quot;Norm&quot;</span>, <span class="st">&quot;Cauchy&quot;</span>))</span></code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
